@@ -1,0 +1,360 @@
+/* ===== FONTE =====
+   Space Grotesk via Google Fonts. O @import precisa vir
+   antes de qualquer outra regra no arquivo CSS. */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+
+/* ===== VARIÁVEIS DE COR =====
+   Paleta inspirada em identidade visual tipo FIAP:
+   preto profundo + vermelho vibrante como destaque. */
+:root {
+  --bg-principal: #0A0A0A;
+  --bg-secundario: #161616;
+  --vermelho: #E4002B;
+  --vermelho-claro: #FF3355;
+  --texto-principal: #FFFFFF;
+  --texto-secundario: #A6A6A6;
+  --borda: #2A2A2A;
+}
+
+/* ===== RESET BÁSICO =====
+   Navegadores aplicam margens/padding diferentes por padrão.
+   Zerar isso evita espaçamentos estranhos e imprevisíveis. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  background-color: var(--bg-principal);
+  color: var(--texto-principal);
+  line-height: 1.6;
+}
+
+/* ===== CABEÇALHO / MENU ===== */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-secundario);
+  border-bottom: 2px solid var(--vermelho);
+  z-index: 10;
+}
+
+.nav {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  color: var(--texto-principal);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--texto-principal);
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--vermelho-claro);
+}
+
+/* ===== HERO (seção de abertura) ===== */
+.hero {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 7rem 1.5rem 5rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--bg-principal) 0%, #150505 100%);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.highlight {
+  color: var(--vermelho-claro);
+}
+
+.hero p {
+  color: var(--texto-secundario);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Botão de destaque, usado no hero */
+.btn {
+  display: inline-block;
+  background-color: var(--vermelho);
+  color: var(--texto-principal);
+  padding: 0.9rem 2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+  background-color: var(--vermelho-claro);
+  transform: translateY(-2px);
+}
+
+/* ===== SEÇÕES GERAIS ===== */
+.section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  border-top: 1px solid var(--borda);
+}
+
+.section h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+/* Linha vermelha decorativa embaixo dos títulos de seção */
+.section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--vermelho);
+}
+
+.section p {
+  color: var(--texto-secundario);
+}
+
+/* ===== GRID DE PROJETOS =====
+   grid-template-columns cria colunas automáticas:
+   cada card tem no mínimo 260px, e quebra linha sozinho
+   quando não cabe mais nenhuma coluna na tela. */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background-color: var(--bg-secundario);
+  border: 1px solid var(--borda);
+  border-left: 3px solid var(--vermelho);
+  border-radius: 6px;
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-color: var(--vermelho-claro);
+  border-left-color: var(--vermelho-claro);
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  letter-spacing: 0.3px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: var(--bg-principal);
+  color: var(--vermelho-claro);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  border: 1px solid var(--vermelho);
+}
+
+.card-link {
+  color: var(--vermelho-claro);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== JORNADA (linha do tempo) ===== */
+
+/* Rótulo pequeno acima do título da seção, tipo "JOURNEY" no exemplo */
+.eyebrow {
+  display: block;
+  color: var(--vermelho-claro);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 2.5rem;
+  padding-left: 90px;
+}
+
+/* A linha vertical que atravessa todos os itens.
+   ::before cria um elemento "invisível" que a gente usa só de decoração,
+   sem precisar de uma div extra no HTML. */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 31px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background-color: var(--borda);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -90px;
+  top: 0;
+  width: 64px;
+  height: 64px;
+  background-color: #FFFFFF;
+  border: 2px solid var(--vermelho);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6px;
+}
+
+/* Para logos que já têm fundo escuro próprio (ex: Lumak),
+   evita a moldura branca ao redor da imagem. */
+.timeline-icon.icon-dark {
+  background-color: #000000;
+  padding: 2px;
+}
+
+.timeline-icon img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.timeline-content h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-period {
+  color: var(--vermelho-claro);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.timeline-role {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--texto-secundario);
+  margin-bottom: 0.6rem;
+}
+
+.timeline-content p:last-child {
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+}
+
+/* ===== CONTATO ===== */
+.contact-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--texto-principal);
+  text-decoration: none;
+  border: 1px solid var(--borda);
+  padding: 0.7rem 1.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.contact-links a i {
+  font-size: 1.1rem;
+}
+
+.contact-links a:hover {
+  border-color: var(--vermelho);
+  background-color: var(--vermelho);
+}
+
+/* ===== RODAPÉ ===== */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--texto-secundario);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--borda);
+}
